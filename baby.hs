@@ -82,3 +82,34 @@ makeList x y = [x..y]
 --makes a reverse list for numbers IE 100 to 1
 makeReverseList x y = [x, x - 1 .. y]
 
+--cycle takes a list and cycles it into an infinite list. Since it will try to display in infinity, you
+--have to take a slice of it
+cycleDemo = take 10 (cycle[1,2,3])
+cycleDemo2 = take 12 (cycle "LOL ")
+
+--repeat makes an infinite list of a sincle element
+repeatDemo = take 12 (repeat 10)
+
+--similar to repeat, replicate makes a finite list using replicate "num of times" "thing to replicate"
+replicateDemo = replicate 10 20
+
+--we can use a set notation
+set1 = [2*x | x <- [1..10]]
+
+--adding a predicate to the prior
+set2 = [2*x | x <- [1..10], 2*x >= 12]
+
+--using predicates in this way is also called "filtering"
+set3 = [x | x <- [50..100], mod x 7 == 3]
+
+boomBangs xs = [if x < 10 then "BOOM!" else "BANG!" | x <- xs, odd x]
+
+set4 = [x | x <- [10..20], x /= 13, x /=15, x /= 19]
+
+set5 = [ x*y | x <- [2,5,10], y <-[8,10,11]]
+
+set6 = [ x*y | x <- [2,5,10], y <-[8,10,11] , x*y > 50]
+
+nouns = ["hobo","frog","pope"]
+adjectives = ["lazy","grouchy","scheming"]
+combos = [adjective ++ " " ++ noun | adjective <- adjectives, noun <- nouns]
